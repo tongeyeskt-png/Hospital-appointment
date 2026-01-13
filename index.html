@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ตารางนัดหมอต้อง</title>
+    <title>Dr.Tong Schedule</title>
     
-    <!-- iOS Web App Meta Tags -->
+    <!-- iOS Web App Config -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="หมอต้อง">
+
+    <!-- New Icon Design: Dr.T (Doctor Tong) -->
+    <link rel="apple-touch-icon" href="https://ui-avatars.com/api/?name=Dr+T&background=0f766e&color=ffffff&size=512&font-size=0.4&length=3&bold=true&rounded=false">
+    <link rel="icon" type="image/png" href="https://ui-avatars.com/api/?name=Dr+T&background=0f766e&color=ffffff&size=512&font-size=0.4&length=3&bold=true&rounded=false">
     
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -85,7 +89,7 @@
 </head>
 <body>
     <div id="root" class="flex items-center justify-center h-screen text-gray-400">
-        กำลังโหลดระบบนัด (หมอต้อง)...
+        กำลังโหลด Dr.T Schedule...
     </div>
 
     <script type="text/babel">
@@ -123,7 +127,7 @@
                 [`${year}-04-13`]: "วันสงกรานต์",
                 [`${year}-04-14`]: "วันสงกรานต์",
                 [`${year}-04-15`]: "วันสงกรานต์",
-                // Removed May 1
+                // May 1 Removed
                 [`${year}-05-04`]: "วันฉัตรมงคล",
                 [`${year}-06-03`]: "วันเฉลิมฯ ราชินี",
                 [`${year}-07-28`]: "วันเฉลิมฯ ร.10",
@@ -238,7 +242,6 @@
                 setHasScrolledToCurrent(false);
             };
 
-            // Button update
             const updateCount = (dateKey, type, change) => {
                 const setter = type === 'opd' ? setAppointments : setProcedures;
                 setter(prev => {
@@ -247,7 +250,6 @@
                 });
             };
 
-            // Manual input update
             const handleManualInput = (dateKey, type, valStr) => {
                 const newVal = parseInt(valStr, 10);
                 const setter = type === 'opd' ? setAppointments : setProcedures;
